@@ -12,16 +12,20 @@ public class BreadthFirstSearch {
 
         while(!queue.isEmpty()) {
             Node node = queue.remove();
-
-            if(node.isMangoSeller == true) {
-                System.out.println("" + node.name + " is the mango seller");
-                return true;
+            
+            if(!searched.contains(node)) {
+                
+                if(node.isMangoSeller == true) {
+                    System.out.println("" + node.name + " is the mango seller");
+                    return true;
+                 }
+                for(Node n: node.neighbours)
+                     queue.add(n);
+                searched.add(node);
             }
-            for(Node n: node.neighbours)
-                queue.add(n);
-            searched.add(node);
 
         }
+
         System.out.println("There is no Mango seller amongst your connections"); 
         return false;
     }
