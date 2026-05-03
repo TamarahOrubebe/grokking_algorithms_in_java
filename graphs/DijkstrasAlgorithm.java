@@ -27,6 +27,7 @@ public class DijkstrasAlgorithm {
 
             HashMap<String, Integer> neighbours = graph.get(nodeName);
             if (!visited.contains(nodeName)) {
+                 visited.add(nodeName);
 
                  for(String n: neighbours.keySet()) {
                     int newCost = cost + neighbours.get(n);
@@ -38,7 +39,7 @@ public class DijkstrasAlgorithm {
                     }
                  }
             }
-            visited.add(nodeName);
+           
         }
 
        List<String> path = new ArrayList<>();
